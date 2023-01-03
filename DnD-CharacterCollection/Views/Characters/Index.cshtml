@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DnD_CharacterCollection.Models.Character>
+﻿@model IEnumerable<Character>
 
 @{
     ViewData["Title"] = "Index";
@@ -22,34 +22,7 @@
                 @Html.DisplayNameFor(model => model.Class)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Alignment)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ArmorClass)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Level)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentExp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxHitPoints)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentHitPoints)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Attributes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Wealth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
             </th>
             <th></th>
         </tr>
@@ -67,34 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Class)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Alignment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArmorClass)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Level)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentExp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxHitPoints)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentHitPoints)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Attributes.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Wealth.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
