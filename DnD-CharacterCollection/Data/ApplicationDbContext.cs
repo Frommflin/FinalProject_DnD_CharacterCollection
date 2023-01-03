@@ -11,5 +11,9 @@ namespace DnD_CharacterCollection.Data
         {
         }
         public DbSet<Character> Characters { get; set; }
+        public DbSet<Alignment> Alignments { get; set; }
+        public DbSet<Race> Races { get; set; }
+        public DbSet<Class> Classes { get; set; }
+
     }
 }
