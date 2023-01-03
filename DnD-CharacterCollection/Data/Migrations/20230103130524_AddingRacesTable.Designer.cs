@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DnD_CharacterCollection.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230103123353_AddingAlignmentsTable")]
-    partial class AddingAlignmentsTable
+    [Migration("20230103130524_AddingRacesTable")]
+    partial class AddingRacesTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -156,6 +156,23 @@ namespace DnD_CharacterCollection.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CoinPouch");
+                });
+
+            modelBuilder.Entity("DnD_CharacterCollection.Models.Race", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Races");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

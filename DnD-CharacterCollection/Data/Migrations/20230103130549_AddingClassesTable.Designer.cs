@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DnD_CharacterCollection.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230103123446_AddingClassesTable")]
+    [Migration("20230103130549_AddingClassesTable")]
     partial class AddingClassesTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
