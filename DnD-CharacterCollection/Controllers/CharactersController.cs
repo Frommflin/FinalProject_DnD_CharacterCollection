@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using DnD_CharacterCollection.Data;
 using DnD_CharacterCollection.Models;
 using Microsoft.AspNetCore.Razor.Language.CodeGeneration;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DnD_CharacterCollection.Controllers
 {
+    [Authorize]
     public class CharactersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -58,7 +60,8 @@ namespace DnD_CharacterCollection.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int level, int armorClass, int currentExp, int maxHitPoints, string userName)
         {
-            Character character = Utilities.CreateCharacter(name, race,characterClass,alignment,age,strength,dexterity,constitution,intelligence,wisdom,charisma,copper,silver,gold,platinum,level,armorClass,currentExp,maxHitPoints, userName);
+            Character character = Utilities.CreateCharacter(name, race, characterClass, alignment, age, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold, platinum, level, armorClass, currentExp, maxHitPoints, userName);
+
 
             if (ModelState.IsValid)
             {

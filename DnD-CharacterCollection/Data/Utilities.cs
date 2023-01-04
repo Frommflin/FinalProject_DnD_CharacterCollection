@@ -34,7 +34,9 @@ namespace DnD_CharacterCollection.Data
             character.MaxHitPoints = maxHitPoints;
             character.CurrentHitPoints = maxHitPoints;
             character.AttributesId = stats.Id;
+            character.Attributes = stats;
             character.CoinPouchId = pouch.Id;
+            character.Wealth = pouch;
             character.UserName = userName;
 
             return character;

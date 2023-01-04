@@ -26,5 +26,6 @@ namespace DnD_CharacterCollection.Models
 
         [Required]
         public int Charisma { get; set; }
+
     }
 }

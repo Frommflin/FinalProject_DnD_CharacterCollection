@@ -20,5 +20,6 @@ namespace DnD_CharacterCollection.Models
 
         [Display(Name = "PP")]
         public int Platinum { get; set; }
+
     }
 }

@@ -36,7 +36,7 @@ namespace DnD_CharacterCollection.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Alignments");
+                    b.ToTable("Alignments", (string)null);
                 });
 
             modelBuilder.Entity("DnD_CharacterCollection.Models.Attributes", b =>
@@ -67,7 +67,7 @@ namespace DnD_CharacterCollection.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Attributes");
+                    b.ToTable("Attributes", (string)null);
                 });
 
             modelBuilder.Entity("DnD_CharacterCollection.Models.Character", b =>
@@ -128,7 +128,7 @@ namespace DnD_CharacterCollection.Data.Migrations
 
                     b.HasIndex("CoinPouchId");
 
-                    b.ToTable("Characters");
+                    b.ToTable("Characters", (string)null);
                 });
 
             modelBuilder.Entity("DnD_CharacterCollection.Models.Class", b =>
@@ -145,7 +145,7 @@ namespace DnD_CharacterCollection.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Classes");
+                    b.ToTable("Classes", (string)null);
                 });
 
             modelBuilder.Entity("DnD_CharacterCollection.Models.CoinPouch", b =>
@@ -170,7 +170,7 @@ namespace DnD_CharacterCollection.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CoinPouch");
+                    b.ToTable("CoinPouch", (string)null);
                 });
 
             modelBuilder.Entity("DnD_CharacterCollection.Models.Race", b =>
@@ -187,7 +187,7 @@ namespace DnD_CharacterCollection.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Races");
+                    b.ToTable("Races", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
