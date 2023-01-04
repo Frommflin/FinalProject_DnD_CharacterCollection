@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DnD_CharacterCollection.Data;
 using DnD_CharacterCollection.Models;
-using Microsoft.AspNetCore.Razor.Language.CodeGeneration;
 using Microsoft.AspNetCore.Authorization;
 
 namespace DnD_CharacterCollection.Controllers
@@ -12,6 +11,7 @@ namespace DnD_CharacterCollection.Controllers
     public class CharactersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private string _user;
 
         public CharactersController(ApplicationDbContext context)
         {
@@ -21,7 +21,8 @@ namespace DnD_CharacterCollection.Controllers
         // GET: Characters
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Characters.Include(c => c.Attributes).Include(c => c.Wealth);
+            _user = User.Identity.Name;
+            var applicationDbContext = _context.Characters.Include(c => c.Attributes).Include(c => c.Wealth).Where(x => x.UserName == _user);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -58,9 +59,9 @@ namespace DnD_CharacterCollection.Controllers
         // POST: Characters/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int level, int armorClass, int currentExp, int maxHitPoints, string userName)
+        public async Task<IActionResult> Create(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int level, int armorClass, int currentExp, int maxHitPoints)
         {
-            Character character = Utilities.CreateCharacter(name, race, characterClass, alignment, age, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold, platinum, level, armorClass, currentExp, maxHitPoints, userName);
+            Character character = Utilities.CreateCharacter(name, race, characterClass, alignment, age, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold, platinum, level, armorClass, currentExp, maxHitPoints, _user);
 
 
             if (ModelState.IsValid)

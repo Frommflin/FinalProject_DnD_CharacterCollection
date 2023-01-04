@@ -28,8 +28,8 @@
                     <span asp-validation-for="Race" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Class" class="control-label"></label>
-                    <select asp-for="Class" class="form-control" asp-items="ViewBag.Classes">
+                    <label for="CharacterClass" class="control-label"></label>
+                    <select name="CharacterClass" class="form-control" asp-items="ViewBag.Classes">
                         <option selected disabled>Chose your class</option>
                     </select>
                     <span asp-validation-for="Class" class="text-danger"></span>
@@ -119,7 +119,6 @@
                     <span asp-validation-for="MaxHitPoints" class="text-danger"></span>
                 </div>
             </fieldset>
-            <input type="hidden" asp-for="UserName" value="@User.Identity?.Name" />
             
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
