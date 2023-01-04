@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DnD_CharacterCollection.Models
 {
     public class Character
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         // Character's personal info
@@ -29,18 +32,8 @@ namespace DnD_CharacterCollection.Models
         // Regularly changing data
 
         [Required]
-        [Range(1,20, ErrorMessage = "Level has to between 1 and 20.")]
-        public int Level {
-            get { return Level; }
-            set
-            {
-                goalExp = lvlBoundaries[Level];
-                if(CurrentExp >= goalExp && Level != 20 )
-                {
-                    Level = Level + 1;
-                }
-            }
-        }
+        [Range(1, 20, ErrorMessage = "Level has to between 1 and 20.")]
+        public int Level { get; set; }
 
         [Required]
         [Range(0, 355000, ErrorMessage = "EXP cannot be negative or exceed max level (355000 exp)")]
@@ -65,6 +58,7 @@ namespace DnD_CharacterCollection.Models
         public CoinPouch Wealth { get; set; }
 
         // User information to limit who can see character
+        [Required]
         public string UserName { get; set; }
 
 

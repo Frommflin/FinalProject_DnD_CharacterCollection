@@ -1,4 +1,6 @@
-﻿@model DnD_CharacterCollection.Models.Character
+﻿@model Character
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
 
 @{
     ViewData["Title"] = "Create";
@@ -11,70 +13,124 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Race" class="control-label"></label>
-                <input asp-for="Race" class="form-control" />
-                <span asp-validation-for="Race" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Class" class="control-label"></label>
-                <input asp-for="Class" class="form-control" />
-                <span asp-validation-for="Class" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Alignment" class="control-label"></label>
-                <input asp-for="Alignment" class="form-control" />
-                <span asp-validation-for="Alignment" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ArmorClass" class="control-label"></label>
-                <input asp-for="ArmorClass" class="form-control" />
-                <span asp-validation-for="ArmorClass" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Level" class="control-label"></label>
-                <input asp-for="Level" class="form-control" />
-                <span asp-validation-for="Level" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CurrentExp" class="control-label"></label>
-                <input asp-for="CurrentExp" class="form-control" />
-                <span asp-validation-for="CurrentExp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxHitPoints" class="control-label"></label>
-                <input asp-for="MaxHitPoints" class="form-control" />
-                <span asp-validation-for="MaxHitPoints" class="text-danger"></span>
-            </div>
+            <fieldset>
+                <legend>Characteristics</legend>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Race" class="control-label"></label>
+                    <select asp-for="Race" class="form-control" asp-items="ViewBag.Races">
+                        <option selected disabled>Choose your race</option>
+                    </select>
+                    <span asp-validation-for="Race" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="CharacterClass" class="control-label"></label>
+                    <select name="CharacterClass" class="form-control" asp-items="ViewBag.Classes">
+                        <option selected disabled>Chose your class</option>
+                    </select>
+                    <span asp-validation-for="Class" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Alignment" class="control-label"></label>
+                    <select asp-for="Alignment" class="form-control" asp-items="ViewBag.Alignments">
+                        <option selected disabled>Choose your alignments</option>
+                    </select>
+                    <span asp-validation-for="Alignment" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Ability scores</legend>
+                <div class="form-group">
+                    <label for="Strength">Strength</label>
+                    <input name="Strength" type="number" min="1" max="20" value="10" />
+                </div>
+                <div class="form-group">
+                    <label for="Dexterity">Dexterity</label>
+                    <input name="Dexterity" type="number" min="1" max="20" value="10" />
+                </div>
+                <div class="form-group">
+                    <label for="Constitution">Constitution</label>
+                    <input name="Constitution" type="number" min="1" max="20" value="10" />
+                </div>
+                <div class="form-group">
+                    <label for="Intelligence">Intelligence</label>
+                    <input name="Intelligence" type="number" min="1" max="20" value="10" />
+                </div>
+                <div class="form-group">
+                    <label for="Wisdom">Wisdom</label>
+                    <input name="Wisdom" type="number" min="1" max="20" value="10" />
+                </div>
+                <div class="form-group">
+                    <label for="Charisma">Charisma</label>
+                    <input name="Charisma" type="number" min="1" max="20" value="10" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Wealth</legend>
+                <div class="form-group">
+                    <label for="Copper">Copper pieces</label>
+                    <input name="Copper" type="number" min="0" value="0" />
+                </div>
+                <div class="form-group">
+                    <label for="Silver">Silver pieces</label>
+                    <input name="Silver" type="number" min="0" value="0" />
+                </div>
+                <div class="form-group">
+                    <label for="Gold">Gold pieces</label>
+                    <input name="Gold" type="number" min="0" value="0" />
+                </div>
+                <div class="form-group">
+                    <label for="Platinum">Platinum pieses</label>
+                    <input name="Platinum" type="number" min="0" value="0" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Character Statistics</legend>
+                <div class="form-group">
+                    <label asp-for="Level" class="control-label"></label>
+                    <input asp-for="Level" class="form-control" />
+                    <span asp-validation-for="Level" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ArmorClass" class="control-label"></label>
+                    <input asp-for="ArmorClass" class="form-control" />
+                    <span asp-validation-for="ArmorClass" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CurrentExp" class="control-label"></label>
+                    <input asp-for="CurrentExp" class="form-control" />
+                    <span asp-validation-for="CurrentExp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaxHitPoints" class="control-label"></label>
+                    <input asp-for="MaxHitPoints" class="form-control" />
+                    <span asp-validation-for="MaxHitPoints" class="text-danger"></span>
+                </div>
+            </fieldset>
+
+
+            @* Needs to be put to max hp at creation
             <div class="form-group">
                 <label asp-for="CurrentHitPoints" class="control-label"></label>
                 <input asp-for="CurrentHitPoints" class="form-control" />
                 <span asp-validation-for="CurrentHitPoints" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AttributesId" class="control-label"></label>
-                <select asp-for="AttributesId" class ="form-control" asp-items="ViewBag.AttributesId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="CoinPouchId" class="control-label"></label>
-                <select asp-for="CoinPouchId" class ="form-control" asp-items="ViewBag.CoinPouchId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
+            </div>*@
+            
+            <input type="hidden" asp-for="UserName" value="@User.Identity?.Name" />
+            
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DnD_CharacterCollection.Data;
 using DnD_CharacterCollection.Models;
+using Microsoft.AspNetCore.Razor.Language.CodeGeneration;
 
 namespace DnD_CharacterCollection.Controllers
 {
@@ -45,16 +46,20 @@ namespace DnD_CharacterCollection.Controllers
         // GET: Characters/Create
         public IActionResult Create()
         {
-            ViewData["AttributesId"] = new SelectList(_context.Set<Attributes>(), "Id", "Id");
-            ViewData["CoinPouchId"] = new SelectList(_context.Set<CoinPouch>(), "Id", "Id");
+            ViewData["Alignments"] = new SelectList(_context.Set<Alignment>(), "Name", "Name");
+            ViewData["Races"] = new SelectList(_context.Set<Race>(), "Name", "Name");
+            ViewData["Classes"] = new SelectList(_context.Set<Class>(), "Name", "Name");
+
             return View();
         }
 
         // POST: Characters/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Race,Class,Alignment,Age,ArmorClass,Level,CurrentExp,MaxHitPoints,CurrentHitPoints,AttributesId,CoinPouchId,UserName")] Character character)
+        public async Task<IActionResult> Create(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int level, int armorClass, int currentExp, int maxHitPoints, string userName)
         {
+            Character character = Utilities.CreateCharacter(name, race,characterClass,alignment,age,strength,dexterity,constitution,intelligence,wisdom,charisma,copper,silver,gold,platinum,level,armorClass,currentExp,maxHitPoints, userName);
+
             if (ModelState.IsValid)
             {
                 _context.Add(character);
