@@ -7,15 +7,9 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Character</h4>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Race)
         </dt>
@@ -70,23 +64,73 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CurrentHitPoints)
         </dd>
+
+
+
+
+        <h6>Abillity Scores</h6>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Attributes)
+            @Html.DisplayNameFor(model => model.Attributes.Strength)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Attributes.Id)
+            @Html.DisplayFor(model => model.Attributes.Strength)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Attributes.Dexterity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Attributes.Dexterity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Attributes.Constitution)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Attributes.Constitution)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Wealth)
+            @Html.DisplayNameFor(model => model.Attributes.Intelligence)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Wealth.Id)
+            @Html.DisplayFor(model => model.Attributes.Intelligence)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayNameFor(model => model.Attributes.Wisdom)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserName)
+            @Html.DisplayFor(model => model.Attributes.Wisdom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Attributes.Charisma)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Attributes.Charisma)
+        </dd>
+
+
+        <h6>Wealth</h6>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Wealth.Copper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Wealth.Copper)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wealth.Silver)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wealth.Silver)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wealth.Gold)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wealth.Gold)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wealth.Platinum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wealth.Platinum)
         </dd>
     </dl>
 </div>
