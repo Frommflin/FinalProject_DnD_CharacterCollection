@@ -1,10 +1,12 @@
-﻿@model DnD_CharacterCollection.Models.Character
+﻿@model Character
 
 @{
     ViewData["Title"] = "Details";
 }
 
 <h1>Details</h1>
+
+<partial name="_CharacterCard" model="@ViewBag.Characters" />
 
 <div>
     <h4>@Html.DisplayFor(model => model.Name)</h4>

@@ -50,6 +50,12 @@ namespace DnD_CharacterCollection.Controllers
                 return NotFound();
             }
 
+            var characters = _context.Characters
+                .Include(c => c.Attributes)
+                .Include(c => c.Wealth)
+                .Where(x => x.UserName == user);
+            ViewData["Characters"] = characters.ToList();
+
             return View(character);
         }
 

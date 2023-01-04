@@ -16,3 +16,21 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*
+ ************************************************************
+ *****   Styling for character-card list + list items   *****
+ ************************************************************
+*/
+.characterList{
+    border: 1px solid black;
+    width: 200px;
+}
+.characterCardLink, .characterCardLink:active, .characterCardLink:visited, .characterCardLink:hover {
+    text-decoration: none;
+    color: black;
+}
+.characterCard {
+    border: 1px dashed black;
+    margin: 15px 10px;
+}

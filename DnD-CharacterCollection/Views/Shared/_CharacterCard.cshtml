@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Character>
+
+
+<div class="characterList">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    @foreach (Character character in Model)
+    {
+        <a class="characterCardLink" asp-action="Details" asp-route-id="@character.Id">
+            <div class="characterCard">
+                <div class="characterCardName">
+                    @character.Name
+                </div>
+                <hr />
+                <div class="characterCardInfo">
+                    <div>
+                        @character.Class
+                    </div>
+                    <div>
+                        Level @character.Level
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
