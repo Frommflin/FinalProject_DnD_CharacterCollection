@@ -17,6 +17,17 @@ body {
   margin-bottom: 60px;
 }
 
+.content{
+    display: flex;
+}
+.page{
+    width: 83%;
+    margin-left: 20px;
+}
+#home{
+    text-align: center;
+}
+
 /*
  ************************************************************
  *****   Styling for character-card list + list items   *****
