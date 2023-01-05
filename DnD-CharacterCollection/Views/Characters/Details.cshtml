@@ -10,132 +10,183 @@
     <partial name="_CharacterCard" model="@ViewBag.Characters" />
     <div class="page">
         <div>
-            <h4>@Html.DisplayFor(model => model.Name)</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Race)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Race)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Class)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Class)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Alignment)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Alignment)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Age)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Age)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.ArmorClass)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.ArmorClass)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Level)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Level)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.CurrentExp)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.CurrentExp)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.MaxHitPoints)
-                </dt>
-                <dd class="col-sm-10">
+            <div id="nameBox" class="box">
+                <h4>@Html.DisplayFor(model => model.Name)</h4>
+                <hr />
+            </div>
+            <div id="lvlBox" class="box">
+                <div id="headerData">
+                    <span> Level </span>
+                    <span> Experience points </span>
+                </div>
+                <hr />
+                <div id="levelData">
+                    <h4>@Html.DisplayFor(model => model.Level)</h4>
+                    <div>
+                        @Html.DisplayFor(model => model.CurrentExp) / @Html.DisplayFor(model => model.goalExp) @* Need to make function to update goalExp depending on lvl *@
+                    </div>
+                </div>
+                <div>
+                    <form> @* Add action, action needs to check agains goal and pass on to lvl up if reached *@
+                        <input type="hidden" asp-for="Id" />
+                        <input name="addExp" type="number" min="0" placeholder="Add exp" />
+                        <input type="submit" value="Add Exp" />
+                    </form>
+                </div>
+            </div>
+            <div id="attributesBox" class="box">
+                <div class="titleData">
+                    Ability Scores
+                </div>
+                <hr />
+                <div class="attributeData">
+                    <div class="attributeName">
+                        @Html.DisplayNameFor(model => model.Attributes.Strength)
+                    </div>
+                    <div class="attributeValue">
+                        @Html.DisplayFor(model => model.Attributes.Strength) @* Add printout for modifiers? *@
+                    </div>
+                </div>
+                <div class="attributeData">
+                    <div class="attributeName">
+                        @Html.DisplayNameFor(model => model.Attributes.Dexterity)
+                    </div>
+                    <div class="attributeValue">
+                        @Html.DisplayFor(model => model.Attributes.Dexterity)
+                    </div>
+                </div>
+                <div class="attributeData">
+                    <div class="attributeName">
+                        @Html.DisplayNameFor(model => model.Attributes.Constitution)
+                    </div>
+                    <div class="attributeValue">
+                        @Html.DisplayFor(model => model.Attributes.Constitution)
+                    </div>
+                </div>
+                <div class="attributeData">
+                    <div class="attributeName">
+                        @Html.DisplayNameFor(model => model.Attributes.Intelligence)
+                    </div>
+                    <div class="attributeValue">
+                        @Html.DisplayFor(model => model.Attributes.Intelligence)
+                    </div>
+                </div>
+                <div class="attributeData">
+                    <div class="attributeName">
+                        @Html.DisplayNameFor(model => model.Attributes.Wisdom)
+                    </div>
+                    <div class="attributeValue">
+                        @Html.DisplayFor(model => model.Attributes.Wisdom)
+                    </div>
+                </div>
+                <div class="attributeData">
+                    <div class="attributeName">
+                        @Html.DisplayNameFor(model => model.Attributes.Charisma)
+                    </div>
+                    <div class="attributeValue">
+                        @Html.DisplayFor(model => model.Attributes.Charisma)
+                    </div>
+                </div>
+            </div>
+            <div id="hpBox" class="box">
+                <div class="titleData">
+                    Hit Points
+                </div>
+                <hr />
+                <div>
                     @Html.DisplayFor(model => model.MaxHitPoints)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.CurrentHitPoints)
-                </dt>
-                <dd class="col-sm-10">
+                </div>
+                <hr />
+                <div>
                     @Html.DisplayFor(model => model.CurrentHitPoints)
-                </dd>
-
-
-
-
-                <h6>Abillity Scores</h6>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Attributes.Strength)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Attributes.Strength)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Attributes.Dexterity)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Attributes.Dexterity)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Attributes.Constitution)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Attributes.Constitution)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Attributes.Intelligence)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Attributes.Intelligence)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Attributes.Wisdom)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Attributes.Wisdom)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Attributes.Charisma)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Attributes.Charisma)
-                </dd>
-
-
-                <h6>Wealth</h6>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Wealth.Copper)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Wealth.Copper)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Wealth.Silver)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Wealth.Silver)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Wealth.Gold)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Wealth.Gold)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Wealth.Platinum)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Wealth.Platinum)
-                </dd>
-            </dl>
+                </div>
+                <div>
+                    <form>
+                        <input type="hidden" asp-for="Id" />
+                        <input asp-for="CurrentHitPoints" />
+                        <input type="submit" value="Heal" asp-action="" /> @* Create action *@
+                        <input type="submit" value="Damange" asp-action="" /> @* Create action *@
+                    </form>
+                </div>
+            </div>
+            <div id="wealthBox" class="box">
+                <div class="titleData">
+                    @Html.DisplayNameFor(model => model.Wealth)
+                </div>
+                <div id="wealthData">
+                    <div id="currentWealth">
+                        <div class="wealthData">
+                            <div class="coinTitle">
+                                @Html.DisplayNameFor(model => model.Wealth.Copper)
+                            </div>
+                            <div class="coinValue">
+                                @Html.DisplayFor(model => model.Wealth.Copper)
+                            </div>
+                        </div>
+                        <div class="wealthData">
+                            <div class="coinsTitle">
+                                @Html.DisplayNameFor(model => model.Wealth.Silver)
+                            </div>
+                            <div class="coinValue">
+                                @Html.DisplayFor(model => model.Wealth.Silver)
+                            </div>
+                        </div>
+                        <div class="wealthData">
+                            <div class="coinTitle">
+                                @Html.DisplayNameFor(model => model.Wealth.Gold)
+                            </div>
+                            <div class="coinValue">
+                                @Html.DisplayFor(model => model.Wealth.Gold)
+                            </div>
+                        </div>
+                        <div class="wealthData">
+                            <div class="coinTitle">
+                                @Html.DisplayNameFor(model => model.Wealth.Platinum)
+                            </div>
+                            <div class="coinValue">
+                                @Html.DisplayFor(model => model.Wealth.Platinum)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="characteristicsBox" class="box">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Race)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Race)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Class)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Class)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Alignment)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Alignment)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Age)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Age)
+                    </dd>
+                </dl>
+            </div>
+            <div id="armorclassBox" class="box">
+                <div class="titleData">
+                    @Html.DisplayNameFor(model => model.ArmorClass)
+                </div>
+                <hr />
+                <div>
+                    @Html.DisplayFor(model => model.ArmorClass)
+                </div>
+            </div>
         </div>
         <div>
             <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |

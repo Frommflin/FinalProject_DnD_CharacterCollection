@@ -45,3 +45,15 @@ body {
     border: 1px dashed black;
     margin: 15px 10px;
 }
+
+/*
+ ************************************************************
+ *****            Styling for character page            *****
+ ************************************************************
+*/
+#nameBox{
+    width: fit-content;
+}
+.box{
+    border: 1px solid red;
+}

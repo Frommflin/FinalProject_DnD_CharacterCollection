@@ -41,5 +41,6 @@ namespace DnD_CharacterCollection.Data
 
             return character;
         }
+
     }
 }
