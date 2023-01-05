@@ -27,9 +27,9 @@
                     </div>
                 </div>
                 <div>
-                    <form> @* Add action, action needs to check agains goal and pass on to lvl up if reached *@
+                    <form asp-action="EditExp"> @* Add action, action needs to check agains goal and pass on to lvl up if reached *@
                         <input type="hidden" asp-for="Id" />
-                        <input name="addExp" type="number" min="0" placeholder="Add exp" />
+                        <input name="addExp" type="number" placeholder="Add exp" />
                         <input type="submit" value="Add Exp" />
                     </form>
                 </div>

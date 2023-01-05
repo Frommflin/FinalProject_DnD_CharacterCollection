@@ -42,5 +42,15 @@ namespace DnD_CharacterCollection.Data
             return character;
         }
 
+
+        public static Character AddExp(Character character, int addExp)
+        {
+            int current = character.CurrentExp;
+            int newexp = current + addExp;
+
+            character.CurrentExp = newexp;
+
+            return character;
+        }
     }
 }

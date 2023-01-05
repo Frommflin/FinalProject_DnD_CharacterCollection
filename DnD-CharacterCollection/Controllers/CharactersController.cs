@@ -59,6 +59,46 @@ namespace DnD_CharacterCollection.Controllers
             return View(character);
         }
 
+        // POST: Characters/Details/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditExp(int id, int addExp)
+        {
+            Character character = _context.Characters.Find(id);
+
+            if (id != character.Id)
+            {
+                return NotFound();
+            }
+
+            character = Utilities.AddExp(character, addExp);
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(character);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CharacterExists(character.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                if (character.CurrentExp >= character.goalExp)
+                {
+                    return RedirectToAction(nameof(Edit), new { id = id });
+                }
+            }
+            return RedirectToAction(nameof(Details), new { id = id });
+        }
+
         // GET: Characters/Create
         public IActionResult Create()
         {
