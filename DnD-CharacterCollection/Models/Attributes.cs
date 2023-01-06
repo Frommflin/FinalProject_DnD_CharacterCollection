@@ -27,5 +27,14 @@ namespace DnD_CharacterCollection.Models
         [Required]
         public int Charisma { get; set; }
 
+        public void Update(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
+        {
+            Strength = strength;
+            Dexterity = dexterity;
+            Constitution = constitution;
+            Intelligence = intelligence;
+            Wisdom = wisdom;
+            Charisma = charisma;
+        }
     }
 }

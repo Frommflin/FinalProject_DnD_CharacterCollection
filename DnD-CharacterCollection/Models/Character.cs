@@ -69,5 +69,11 @@ namespace DnD_CharacterCollection.Models
         {
             goalExp = lvlBoundaries[0];
         }
+
+        public void UpdateLevelBoundary(int newLevel)
+        {
+            goalExp = lvlBoundaries[newLevel - 1];
+        }
+
     }
 }

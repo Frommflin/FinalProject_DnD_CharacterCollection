@@ -136,25 +136,30 @@ namespace DnD_CharacterCollection.Controllers
                 return NotFound();
             }
 
-            var character = await _context.Characters.FindAsync(id);
+            Character character = await _context.Characters.Include(x => x.Attributes).FirstOrDefaultAsync(x => x.Id == id);
             if (character == null)
             {
                 return NotFound();
             }
-            ViewData["AttributesId"] = new SelectList(_context.Set<Attributes>(), "Id", "Id", character.AttributesId);
-            ViewData["CoinPouchId"] = new SelectList(_context.Set<CoinPouch>(), "Id", "Id", character.CoinPouchId);
+            ViewData["NewLevel"] = character.Level + 1;
             return View(character);
         }
 
         // POST: Characters/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Race,Class,Alignment,Age,ArmorClass,Level,CurrentExp,MaxHitPoints,CurrentHitPoints,AttributesId,CoinPouchId,UserName")] Character character)
+        public async Task<IActionResult> Edit(int id, int newLevel, int armorClass, int maxHitPoints, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
         {
+            Character character = _context.Characters.Find(id);
+            
+
             if (id != character.Id)
             {
                 return NotFound();
             }
+
+            Attributes charAttributes = _context.Attributes.Find(character.AttributesId);
+            character = Utilities.LevelUp(character, charAttributes, newLevel, armorClass, maxHitPoints, strength, dexterity, constitution, intelligence, wisdom, charisma);
 
             if (ModelState.IsValid)
             {
@@ -174,10 +179,9 @@ namespace DnD_CharacterCollection.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new { id = id });
             }
-            ViewData["AttributesId"] = new SelectList(_context.Set<Attributes>(), "Id", "Id", character.AttributesId);
-            ViewData["CoinPouchId"] = new SelectList(_context.Set<CoinPouch>(), "Id", "Id", character.CoinPouchId);
+            ViewData["NewLevel"] = newLevel;
             return View(character);
         }
 
