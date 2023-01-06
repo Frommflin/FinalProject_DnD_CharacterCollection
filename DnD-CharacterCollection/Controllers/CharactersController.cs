@@ -193,10 +193,8 @@ namespace DnD_CharacterCollection.Controllers
                 return NotFound();
             }
 
-            var character = await _context.Characters
-                .Include(c => c.Attributes)
-                .Include(c => c.Wealth)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var character = await _context.Characters.FirstOrDefaultAsync(m => m.Id == id);
+            
             if (character == null)
             {
                 return NotFound();
@@ -214,10 +212,16 @@ namespace DnD_CharacterCollection.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Character'  is null.");
             }
-            var character = await _context.Characters.FindAsync(id);
+
+            Character character = await _context.Characters.FindAsync(id);
+            Attributes attributes = await _context.Attributes.FindAsync(character.AttributesId);
+            CoinPouch coinpouch = await _context.CoinPouch.FindAsync(character.CoinPouchId);
+
             if (character != null)
             {
                 _context.Characters.Remove(character);
+                _context.Attributes.Remove(attributes);
+                _context.CoinPouch.Remove(coinpouch);
             }
             
             await _context.SaveChangesAsync();
