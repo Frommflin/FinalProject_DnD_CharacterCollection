@@ -112,9 +112,9 @@ namespace DnD_CharacterCollection.Controllers
         // POST: Characters/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int level, int armorClass, int currentExp, int maxHitPoints)
+        public async Task<IActionResult> Create(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int armorClass, int maxHitPoints)
         {
-            Character character = Utilities.CreateCharacter(name, race, characterClass, alignment, age, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold, platinum, level, armorClass, currentExp, maxHitPoints, user);
+            Character character = Utilities.CreateCharacter(name, race, characterClass, alignment, age, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold, platinum, armorClass, maxHitPoints, user);
 
 
             if (ModelState.IsValid)

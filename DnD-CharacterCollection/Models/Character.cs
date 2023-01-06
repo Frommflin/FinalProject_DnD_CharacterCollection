@@ -67,6 +67,8 @@ namespace DnD_CharacterCollection.Models
 
         public Character()
         {
+            Level = 1;
+            CurrentExp = 0;
             goalExp = lvlBoundaries[0];
         }
 

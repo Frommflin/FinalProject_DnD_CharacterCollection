@@ -4,7 +4,7 @@ namespace DnD_CharacterCollection.Data
 {
     public class Utilities
     {
-        public static Character CreateCharacter(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int level, int armorClass, int currentExp, int maxHitPoints, string userName)
+        public static Character CreateCharacter(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int armorClass, int maxHitPoints, string userName)
         {
             Character character = new Character();
 
@@ -27,9 +27,7 @@ namespace DnD_CharacterCollection.Data
             character.Class = characterClass;
             character.Alignment = alignment;
             character.Age = age;
-            character.Level = level;
             character.ArmorClass = armorClass;
-            character.CurrentExp = currentExp;
             character.MaxHitPoints = maxHitPoints;
             character.CurrentHitPoints = maxHitPoints;
             character.AttributesId = stats.Id;
