@@ -61,20 +61,22 @@ namespace DnD_CharacterCollection.Models
         [Required]
         public string UserName { get; set; }
 
+        [Required]
+        public int goalExp { get; set; } //changing depending on entered level
 
-        public int goalExp; //changing depending on entered level
+
         private int[] lvlBoundaries = { 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000, 0 };
 
         public Character()
         {
             Level = 1;
             CurrentExp = 0;
-            goalExp = lvlBoundaries[0];
+            UpdateLevelBoundary(Level);
         }
 
-        public void UpdateLevelBoundary(int newLevel)
+        public void UpdateLevelBoundary(int level)
         {
-            goalExp = lvlBoundaries[newLevel - 1];
+            goalExp = lvlBoundaries[level - 1];
         }
 
     }

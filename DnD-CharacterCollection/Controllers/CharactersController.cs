@@ -41,10 +41,11 @@ namespace DnD_CharacterCollection.Controllers
                 return NotFound();
             }
 
-            var character = await _context.Characters
+            Character character = await _context.Characters
                 .Include(c => c.Attributes)
                 .Include(c => c.Wealth)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (character == null)
             {
                 return NotFound();
