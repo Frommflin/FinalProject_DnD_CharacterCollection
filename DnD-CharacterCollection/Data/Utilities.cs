@@ -74,5 +74,15 @@ namespace DnD_CharacterCollection.Data
             int newHp = character.CurrentHitPoints + hitPoints;
             return newHp;
         }
+
+        public static CoinPouch UpdateWealth(CoinPouch coinpouch, int copper, int silver, int gold, int platinum)
+        {
+            coinpouch.Copper += copper;
+            coinpouch.Silver += silver;
+            coinpouch.Gold += gold;
+            coinpouch.Platinum += platinum;
+
+            return coinpouch;
+        }
     }
 }

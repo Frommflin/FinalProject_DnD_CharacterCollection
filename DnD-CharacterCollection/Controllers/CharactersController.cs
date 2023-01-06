@@ -169,6 +169,78 @@ namespace DnD_CharacterCollection.Controllers
             return RedirectToAction(nameof(Details), new { id = id });
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> GainCoins(int id, int copper, int silver, int gold, int platinum)
+        {
+            Character character = _context.Characters.Find(id);
+
+            if (id != character.Id)
+            {
+                return NotFound();
+            }
+
+            CoinPouch coinpouch = _context.CoinPouch.Find(character.Id);
+            coinpouch = Utilities.UpdateWealth(coinpouch, copper, silver, gold, platinum);
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(character);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CharacterExists(character.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return RedirectToAction(nameof(Details), new { id = id });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LoseCoins(int id, int copper, int silver, int gold, int platinum)
+        {
+            Character character = _context.Characters.Find(id);
+
+            if (id != character.Id)
+            {
+                return NotFound();
+            }
+
+            CoinPouch coinpouch = _context.CoinPouch.Find(character.Id);
+            coinpouch = Utilities.UpdateWealth(coinpouch, -copper, -silver, -gold, -platinum);
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(character);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CharacterExists(character.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return RedirectToAction(nameof(Details), new { id = id });
+        }
+
         // GET: Characters/Create
         public IActionResult Create()
         {
