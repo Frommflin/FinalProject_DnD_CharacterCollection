@@ -23,11 +23,11 @@
                 <div id="levelData">
                     <h4>@Html.DisplayFor(model => model.Level)</h4>
                     <div>
-                        @Html.DisplayFor(model => model.CurrentExp) / @Html.DisplayFor(model => model.goalExp) @* Need to make function to update goalExp depending on lvl *@
+                        @Html.DisplayFor(model => model.CurrentExp) / @Html.DisplayFor(model => model.goalExp)
                     </div>
                 </div>
                 <div>
-                    <form asp-action="EditExp"> @* Add action, action needs to check agains goal and pass on to lvl up if reached *@
+                    <form asp-action="EditExp">
                         <input type="hidden" asp-for="Id" />
                         <input name="addExp" type="number" placeholder="Add exp" />
                         <input type="submit" value="Add Exp" />
@@ -101,11 +101,11 @@
                     @Html.DisplayFor(model => model.CurrentHitPoints)
                 </div>
                 <div>
-                    <form>
+                    <form method="post">
                         <input type="hidden" asp-for="Id" />
-                        <input asp-for="CurrentHitPoints" />
-                        <input type="submit" value="Heal" asp-action="" /> @* Create action *@
-                        <input type="submit" value="Damange" asp-action="" /> @* Create action *@
+                        <input type="number" name="HitPoints" min="0" placeholder="Hit Points" />
+                        <input type="submit" value="Recover" asp-controller="Characters" asp-action="RecoverHitPoints" />
+                        <input type="submit" value="Damage" asp-controller="Characters" asp-action="LoseHitPoints" />
                     </form>
                 </div>
             </div>

@@ -68,5 +68,11 @@ namespace DnD_CharacterCollection.Data
             }
             return character;
         }
+
+        public static int UpdateHitPoints(Character character, int hitPoints)
+        {
+            int newHp = character.CurrentHitPoints + hitPoints;
+            return newHp;
+        }
     }
 }

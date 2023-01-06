@@ -60,7 +60,6 @@ namespace DnD_CharacterCollection.Controllers
             return View(character);
         }
 
-        // POST: Characters/Details/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditExp(int id, int addExp)
@@ -95,6 +94,76 @@ namespace DnD_CharacterCollection.Controllers
                 if (character.CurrentExp >= character.goalExp)
                 {
                     return RedirectToAction(nameof(Edit), new { id = id });
+                }
+            }
+            return RedirectToAction(nameof(Details), new { id = id });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RecoverHitPoints(int id, int hitPoints)
+        {
+            Character character = _context.Characters.Find(id);
+
+            if (id != character.Id)
+            {
+                return NotFound();
+            }
+
+            character.CurrentHitPoints = Utilities.UpdateHitPoints(character, hitPoints);
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(character);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CharacterExists(character.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return RedirectToAction(nameof(Details), new { id = id });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LoseHitPoints(int id, int hitPoints)
+        {
+            Character character = _context.Characters.Find(id);
+
+            if (id != character.Id)
+            {
+                return NotFound();
+            }
+
+            character.CurrentHitPoints = Utilities.UpdateHitPoints(character, -hitPoints);
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(character);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CharacterExists(character.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
             }
             return RedirectToAction(nameof(Details), new { id = id });
