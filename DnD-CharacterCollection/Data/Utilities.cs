@@ -22,7 +22,6 @@ namespace DnD_CharacterCollection.Data
             pouch.Gold = gold;
             pouch.Platinum = platinum;
 
-
             character.Name = name;
             character.Race = race;
             character.Class = characterClass;
@@ -42,7 +41,6 @@ namespace DnD_CharacterCollection.Data
             return character;
         }
 
-
         public static Character AddExp(Character character, int addExp)
         {
             int current = character.CurrentExp;
@@ -53,7 +51,7 @@ namespace DnD_CharacterCollection.Data
             return character;
         }
 
-        internal static Character LevelUp(Character character, Attributes attributes, int newLevel, int armorClass, int maxHitPoints, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
+        public static Character LevelUp(Character character, Attributes attributes, int newLevel, int armorClass, int maxHitPoints, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
         {
             character.Level = newLevel;
             character.ArmorClass = armorClass;
@@ -63,8 +61,6 @@ namespace DnD_CharacterCollection.Data
 
             if(newLevel == 4 || newLevel == 8 || newLevel == 12 || newLevel == 16 || newLevel == 19)
             {
-                //UpdateAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
-
                 attributes.Strength = strength;
                 attributes.Dexterity = dexterity;
                 attributes.Constitution = constitution;
@@ -72,7 +68,6 @@ namespace DnD_CharacterCollection.Data
                 attributes.Wisdom = wisdom;
                 attributes.Charisma = charisma;
             }
-
             return character;
         }
     }
