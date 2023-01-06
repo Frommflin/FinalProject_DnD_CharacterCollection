@@ -53,7 +53,13 @@ namespace DnD_CharacterCollection.Data
         {
             character.Level = newLevel;
             character.ArmorClass = armorClass;
+
+            if(character.CurrentHitPoints == character.MaxHitPoints)
+            {
+                character.CurrentHitPoints = maxHitPoints;
+            }
             character.MaxHitPoints = maxHitPoints;
+
 
             character.UpdateLevelBoundary(character.Level);
 

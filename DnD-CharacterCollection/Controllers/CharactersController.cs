@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using DnD_CharacterCollection.Data;
 using DnD_CharacterCollection.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 
 namespace DnD_CharacterCollection.Controllers
 {
