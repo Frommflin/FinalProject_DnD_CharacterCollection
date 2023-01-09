@@ -108,7 +108,7 @@ main {
 #levelData h4 {
     margin: 0px;
 }
-#levelData .expGropu {
+#levelData .expGroup {
     padding-top: 2px;
 }
 #editExp {
@@ -117,4 +117,22 @@ main {
 }
 #editExp input[name="addExp"] {
     width: 100px;
+}
+
+
+
+/* Attribute-Box styling */
+#attributesBox {
+    text-align: center;
+}
+.attributeData {
+    border: 3px groove;
+    border-radius: 100%;
+    margin: 10px;
+}
+.attributeName {
+    font-size: medium;
+    font-weight: 500;
+}
+.attributeValue {
 }

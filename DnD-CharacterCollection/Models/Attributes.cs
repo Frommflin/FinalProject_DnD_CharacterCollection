@@ -10,21 +10,27 @@ namespace DnD_CharacterCollection.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Str")]
         public int Strength { get; set; }
 
         [Required]
+        [Display(Name = "Dex")]
         public int Dexterity { get; set; }
 
         [Required]
+        [Display(Name = "Con")]
         public int Constitution { get; set; }
 
         [Required]
+        [Display(Name = "Int")]
         public int Intelligence { get; set; }
 
         [Required]
+        [Display(Name = "Wis")]
         public int Wisdom { get; set; }
 
         [Required]
+        [Display(Name = "Cha")]
         public int Charisma { get; set; }
 
     }
