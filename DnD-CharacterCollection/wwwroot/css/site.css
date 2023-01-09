@@ -1,5 +1,7 @@
 html {
   font-size: 14px;
+  min-height: 100%;
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -8,21 +10,24 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+  height: 100vh;
 }
-
+.container{
+    height: 88%;
+    padding: 0;
+}
+main {
+    height: 100%;
+    padding: 1rem 0;
+}
 .content{
     display: flex;
+    height: 100%;
 }
 .page{
-    width: 83%;
     margin-left: 20px;
+    width: 83%;
 }
 #home{
     text-align: center;
@@ -35,11 +40,17 @@ body {
 */
 .characterList{
     border: 1px solid black;
+    height: fit-content;
+    max-height: 100%;
+    overflow: auto;
     width: 200px;
 }
-.characterCardLink, .characterCardLink:active, .characterCardLink:visited, .characterCardLink:hover {
-    text-decoration: none;
+.characterCardLink, 
+.characterCardLink:active, 
+.characterCardLink:visited, 
+.characterCardLink:hover {
     color: black;
+    text-decoration: none;
 }
 .characterCard {
     border: 1px dashed black;
