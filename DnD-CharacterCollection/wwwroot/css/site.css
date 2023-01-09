@@ -33,6 +33,10 @@ main {
     text-align: center;
 }
 
+.flex {
+    display: flex;
+}
+
 /*
  ************************************************************
  *****   Styling for character-card list + list items   *****
@@ -75,6 +79,7 @@ main {
 .titleData{
     text-transform: uppercase;
     font-size: small;
+    text-align: center;
 }
 
 
@@ -87,12 +92,11 @@ main {
 #lvlBox {
     height: min-content;
 }
-.level{
-    display: flex;
-    justify-content: space-evenly;
-}
 #levelInfo{
     width: 400px;
+}
+#levelInfo .flex {
+    justify-content: space-evenly;
 }
 .lvlGroup, .expGroup {
     text-align: center;
@@ -139,9 +143,6 @@ main {
 #hpBox {
     text-align: center;
 }
-.hpRow{
-    display: flex;
-}
 .hp {
     font-size: xx-small;
     width: 70px;
@@ -160,4 +161,30 @@ main {
 }
 #editHp div{
     margin-top: -5px;
+}
+
+/* Wealth-Box styling */
+#wealthBox {
+}
+#wealthData {
+}
+#currentWealth {
+}
+.wealthItem {
+    margin: 3px 20px 3px 10px;
+}
+.coinTitle {
+    margin-right: 30px;
+    font-size: medium;
+    font-weight: 500;
+}
+.coinValue {
+}
+#verticalDivider{
+    border-left: 1px solid black;
+    margin: 0px 5px;
+    opacity: .3;
+}
+#editWealth input[type="number"]{
+    width: 146px;
 }
