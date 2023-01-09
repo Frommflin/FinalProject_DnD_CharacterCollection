@@ -6,29 +6,33 @@
 
 <div class="content">
     <partial name="_CharacterCard" model="@ViewBag.Characters" />
-    <div class="page">
+    <div id="characterPage" class="page">
         <div>
             <div id="nameBox" class="box">
                 <h4>@Html.DisplayFor(model => model.Name)</h4>
                 <hr />
             </div>
-            <div id="lvlBox" class="box">
-                <div id="headerData">
-                    <span> Level </span>
-                    <span> Experience points </span>
-                </div>
-                <hr />
-                <div id="levelData">
-                    <h4>@Html.DisplayFor(model => model.Level)</h4>
-                    <div>
-                        @Html.DisplayFor(model => model.CurrentExp) / @Html.DisplayFor(model => model.goalExp)
+            <div id="lvlBox" class="box level">
+                <div id="levelInfo">
+                    <div id="headerData" class="titleData level">
+                        <div class="lvlGroup"> Level </div>
+                        <div class="expGroup"> Experience points </div>
+                    </div>
+                    <hr />
+                    <div id="levelData" class="level">
+                        <div class="lvlGroup">
+                            <h4>@Html.DisplayFor(model => model.Level)</h4>
+                        </div>
+                        <div class="expGroup">
+                            @Html.DisplayFor(model => model.CurrentExp) / @Html.DisplayFor(model => model.goalExp)
+                        </div>
                     </div>
                 </div>
-                <div>
+                <div id="editExp" class="level">
                     <form asp-action="EditExp">
                         <input type="hidden" asp-for="Id" />
                         <input name="addExp" type="number" placeholder="Add exp" />
-                        <input type="submit" value="Add Exp" />
+                        <input type="submit" value="+" />
                     </form>
                 </div>
             </div>
@@ -113,7 +117,7 @@
                 </div>
                 <div id="wealthData">
                     <div id="currentWealth">
-                        <div class="wealthData">
+                        <div class="wealthItem">
                             <div class="coinTitle">
                                 @Html.DisplayNameFor(model => model.Wealth.Copper)
                             </div>
@@ -121,7 +125,7 @@
                                 @Html.DisplayFor(model => model.Wealth.Copper)
                             </div>
                         </div>
-                        <div class="wealthData">
+                        <div class="wealthItem">
                             <div class="coinsTitle">
                                 @Html.DisplayNameFor(model => model.Wealth.Silver)
                             </div>
@@ -129,7 +133,7 @@
                                 @Html.DisplayFor(model => model.Wealth.Silver)
                             </div>
                         </div>
-                        <div class="wealthData">
+                        <div class="wealthItem">
                             <div class="coinTitle">
                                 @Html.DisplayNameFor(model => model.Wealth.Gold)
                             </div>
@@ -137,7 +141,7 @@
                                 @Html.DisplayFor(model => model.Wealth.Gold)
                             </div>
                         </div>
-                        <div class="wealthData">
+                        <div class="wealthItem">
                             <div class="coinTitle">
                                 @Html.DisplayNameFor(model => model.Wealth.Platinum)
                             </div>
@@ -147,15 +151,18 @@
                         </div>
                     </div>
                 </div>
-                <form method="post">
-                    <input type="hidden" asp-for="Id" />
-                    <input type="number" name="Copper" min="0" placeholder="Copper pieces" />
-                    <input type="number" name="Silver" min="0" placeholder="Silver pieces" />
-                    <input type="number" name="Gold" min="0" placeholder="Gold pieces" />
-                    <input type="number" name="Platinum" min="0" placeholder="Platinum pieces" />
-                    <input type="submit" value="Income" asp-controller="Characters" asp-action="GainCoins" />
-                    <input type="submit" value="Expense" asp-controller="Characters" asp-action="LoseCoins" />
-                </form>
+                <div id="editWealth">
+                    <form method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="number" name="Copper" min="0" placeholder="Copper pieces" />
+                        <input type="number" name="Silver" min="0" placeholder="Silver pieces" />
+                        <input type="number" name="Gold" min="0" placeholder="Gold pieces" />
+                        <input type="number" name="Platinum" min="0" placeholder="Platinum pieces" />
+                        <input type="submit" value="Income" asp-controller="Characters" asp-action="GainCoins" />
+                        <input type="submit" value="Expense" asp-controller="Characters" asp-action="LoseCoins" />
+                    </form>
+                </div>
+                
             </div>
             <div id="characteristicsBox" class="box">
                 <dl class="row">

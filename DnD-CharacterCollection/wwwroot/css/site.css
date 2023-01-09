@@ -62,9 +62,59 @@ main {
  *****            Styling for character page            *****
  ************************************************************
 */
-#nameBox{
+#characterPage{
+    position: relative;
+}
+#characterPage hr{
+    margin: 0px;
+}
+.box {
+    border: 1px solid red;
     width: fit-content;
 }
-.box{
-    border: 1px solid red;
+.titleData{
+    text-transform: uppercase;
+    font-size: small;
+}
+
+
+/* Name-Box styling */
+#nameBox {
+    width: fit-content;
+}
+
+/* Level-Box styling */
+#lvlBox {
+    height: min-content;
+}
+.level{
+    display: flex;
+    justify-content: space-evenly;
+}
+#levelInfo{
+    width: 400px;
+}
+.lvlGroup, .expGroup {
+    text-align: center;
+}
+.lvlGroup {
+    width: 70px;
+}
+.expGroup{
+    width: 170px
+}
+#headerData {
+}
+#levelData h4 {
+    margin: 0px;
+}
+#levelData .expGropu {
+    padding-top: 2px;
+}
+#editExp {
+    align-items: flex-end;
+    margin-left: 5px;
+}
+#editExp input[name="addExp"] {
+    width: 100px;
 }
