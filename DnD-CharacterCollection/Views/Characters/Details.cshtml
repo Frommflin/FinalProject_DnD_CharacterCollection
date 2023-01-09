@@ -95,21 +95,31 @@
                     Hit Points
                 </div>
                 <hr />
-                <div>
-                    @Html.DisplayFor(model => model.MaxHitPoints)
+                <div class="hpRow">
+                    <div class="titleData hp">
+                        Max
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.MaxHitPoints)
+                    </div>
                 </div>
                 <hr />
-                <div>
-                    @Html.DisplayFor(model => model.CurrentHitPoints)
+                <div class="hpRow">
+                    <div class="titleData hp">
+                        Current
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.CurrentHitPoints)
+                    </div>
                 </div>
-                <div>
-                    <form method="post">
-                        <input type="hidden" asp-for="Id" />
-                        <input type="number" name="HitPoints" min="0" placeholder="Hit Points" />
+                <form method="post" id="editHp">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="number" name="HitPoints" min="0" placeholder="Hit Points" />
+                    <div>
                         <input type="submit" value="Recover" asp-controller="Characters" asp-action="RecoverHitPoints" />
                         <input type="submit" value="Damage" asp-controller="Characters" asp-action="LoseHitPoints" />
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
             <div id="wealthBox" class="box">
                 <div class="titleData">

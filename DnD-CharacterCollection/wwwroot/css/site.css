@@ -119,8 +119,6 @@ main {
     width: 100px;
 }
 
-
-
 /* Attribute-Box styling */
 #attributesBox {
     text-align: center;
@@ -135,4 +133,31 @@ main {
     font-weight: 500;
 }
 .attributeValue {
+}
+
+/* HP-Box styling */
+#hpBox {
+    text-align: center;
+}
+.hpRow{
+    display: flex;
+}
+.hp {
+    font-size: xx-small;
+    width: 70px;
+    text-align: left;
+    line-height: 24px;
+    padding-left: 5px;
+}
+#hpBox input{
+    font-size: small;
+    line-height: 10px;
+    height: 17px;
+
+}
+#hpBox input[name="HitPoints"] {
+    width: 129px;
+}
+#editHp div{
+    margin-top: -5px;
 }
