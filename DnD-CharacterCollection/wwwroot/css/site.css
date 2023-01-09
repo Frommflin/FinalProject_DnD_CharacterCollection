@@ -66,14 +66,14 @@ main {
  *****            Styling for character page            *****
  ************************************************************
 */
-#characterPage{
+#characterPage {
     position: relative;
+    padding: 20px 50px;
 }
 #characterPage hr{
     margin: 0px;
 }
 .box {
-    border: 1px solid red;
     width: fit-content;
 }
 .titleData{
@@ -82,15 +82,21 @@ main {
     text-align: center;
 }
 
-
 /* Name-Box styling */
 #nameBox {
-    width: fit-content;
+    width: 420px;
+    text-align: center;
+}
+
+.absolute{
+    position: absolute;
 }
 
 /* Level-Box styling */
 #lvlBox {
     height: min-content;
+    top: 46px;
+    right: 60px;
 }
 #levelInfo{
     width: 400px;
@@ -126,6 +132,7 @@ main {
 /* Attribute-Box styling */
 #attributesBox {
     text-align: center;
+    margin: 20px 10px;
 }
 .attributeData {
     border: 3px groove;
@@ -142,6 +149,8 @@ main {
 /* HP-Box styling */
 #hpBox {
     text-align: center;
+    top: 87px;
+    left: 197px;
 }
 .hp {
     font-size: xx-small;
@@ -150,21 +159,14 @@ main {
     line-height: 24px;
     padding-left: 5px;
 }
-#hpBox input{
-    font-size: small;
-    line-height: 10px;
-    height: 17px;
-
-}
 #hpBox input[name="HitPoints"] {
-    width: 129px;
-}
-#editHp div{
-    margin-top: -5px;
+    width: 151px;
 }
 
 /* Wealth-Box styling */
 #wealthBox {
+    top: 300px;
+    left: 200px;
 }
 #wealthData {
 }
@@ -192,6 +194,8 @@ main {
 /* Characteristics-Box styling */
 #characteristicsBox {
     width: 400px;
+    top: 190px;
+    right: 120px;
 }
 dl{
     margin: 0;
@@ -203,6 +207,8 @@ dl{
     height: 60px;
     width: 60px;
     text-align: center;
+    top: 87px;
+    left: 395px;
 }
 #armorclassData {
     height: 40px;

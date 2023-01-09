@@ -9,10 +9,10 @@
     <div id="characterPage" class="page">
         <div>
             <div id="nameBox" class="box">
-                <h4>@Html.DisplayFor(model => model.Name)</h4>
+                <h2>@Html.DisplayFor(model => model.Name)</h2>
                 <hr />
             </div>
-            <div id="lvlBox" class="box flex">
+            <div id="lvlBox" class="box flex absolute">
                 <div id="levelInfo">
                     <div id="headerData" class="titleData flex">
                         <div class="lvlGroup"> Level </div>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div id="hpBox" class="box">
+            <div id="hpBox" class="box absolute">
                 <div class="titleData">
                     Hit Points
                 </div>
@@ -119,7 +119,7 @@
                     </div>
                 </form>
             </div>
-            <div id="wealthBox" class="box">
+            <div id="wealthBox" class="box absolute">
                 <div class="titleData">
                     @Html.DisplayNameFor(model => model.Wealth)
                 </div>
@@ -186,7 +186,7 @@
                     </form>
                 </div>
             </div>
-            <div id="characteristicsBox" class="box">
+            <div id="characteristicsBox" class="box absolute">
                 <dl class="row">
                     <dt class="col-sm-5">
                         @Html.DisplayNameFor(model => model.Race)
@@ -214,7 +214,7 @@
                     </dd>
                 </dl>
             </div>
-            <div id="armorclassBox" class="box">
+            <div id="armorclassBox" class="box absolute">
                 <div class="titleData">
                     @Html.DisplayNameFor(model => model.ArmorClass)
                 </div>
@@ -225,9 +225,7 @@
             </div>
         </div>
         <div>
-            <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-            <a asp-action="Delete" asp-route-id="@Model?.Id">Delete</a> |
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
         </div>
     </div>
 </div>
