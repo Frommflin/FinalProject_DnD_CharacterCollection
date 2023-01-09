@@ -188,3 +188,12 @@ main {
 #editWealth input[type="number"]{
     width: 146px;
 }
+
+/* Characteristics-Box styling */
+#characteristicsBox {
+    width: 400px;
+}
+dl{
+    margin: 0;
+    padding-left: 10px;
+}
