@@ -4,7 +4,7 @@
     <partial name="_CharacterCard" model="@ViewBag.Characters" />
     <div id="characterPage" class="page">
         <div>
-            <div id="nameBox" class="box">
+            <div id="nameBox" class="box characterName">
                 <h2>@Html.DisplayFor(model => model.Name)</h2>
                 <hr />
             </div>
@@ -27,7 +27,7 @@
                 <form asp-action="EditExp" id="editExp" class="flex">
                     <input type="hidden" asp-for="Id" />
                     <input name="addExp" type="number" placeholder="Add exp" />
-                    <input type="submit" value="+" />
+                    <input type="submit" value="+" class="btn btn-outline-success" />
                 </form>
             </div>
             <div id="attributesBox" class="box">
@@ -110,8 +110,8 @@
                     <input type="hidden" asp-for="Id" />
                     <input type="number" name="HitPoints" min="0" placeholder="Hit Points" />
                     <div>
-                        <input type="submit" value="Recover" asp-controller="Characters" asp-action="RecoverHitPoints" />
-                        <input type="submit" value="Damage" asp-controller="Characters" asp-action="LoseHitPoints" />
+                        <input type="submit" value="Recover" asp-controller="Characters" asp-action="RecoverHitPoints" class="btn btn-outline-success" />
+                        <input type="submit" value="Damage" asp-controller="Characters" asp-action="LoseHitPoints" class="btn btn-outline-danger" />
                     </div>
                 </form>
             </div>
@@ -176,33 +176,33 @@
                             <input type="hidden" asp-for="Id" />
                         </div>
                         <div>
-                            <input type="submit" value="Income" asp-controller="Characters" asp-action="GainCoins" />
-                            <input type="submit" value="Expense" asp-controller="Characters" asp-action="LoseCoins" />
+                            <input type="submit" value="Income" asp-controller="Characters" asp-action="GainCoins" class="btn btn-outline-success" />
+                            <input type="submit" value="Expense" asp-controller="Characters" asp-action="LoseCoins"  class="btn btn-outline-danger"/>
                         </div>
                     </form>
                 </div>
             </div>
             <div id="characteristicsBox" class="box absolute">
                 <dl class="row">
-                    <dt class="col-sm-5">
+                    <dt class="col-sm-5 titleData">
                         @Html.DisplayNameFor(model => model.Race)
                     </dt>
                     <dd class="col-sm-7">
                         @Html.DisplayFor(model => model.Race)
                     </dd>
-                    <dt class="col-sm-5">
+                    <dt class="col-sm-5 titleData">
                         @Html.DisplayNameFor(model => model.Class)
                     </dt>
                     <dd class="col-sm-7">
                         @Html.DisplayFor(model => model.Class)
                     </dd>
-                    <dt class="col-sm-5">
+                    <dt class="col-sm-5 titleData">
                         @Html.DisplayNameFor(model => model.Alignment)
                     </dt>
                     <dd class="col-sm-7">
                         @Html.DisplayFor(model => model.Alignment)
                     </dd>
-                    <dt class="col-sm-5">
+                    <dt class="col-sm-5 titleData">
                         @Html.DisplayNameFor(model => model.Age)
                     </dt>
                     <dd class="col-sm-7">
@@ -220,8 +220,8 @@
                 </div>
             </div>
         </div>
-        <div>
-            <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+        <div id="deleteBtn" class="absolute">
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Delete character</a>
         </div>
     </div>
 </div>

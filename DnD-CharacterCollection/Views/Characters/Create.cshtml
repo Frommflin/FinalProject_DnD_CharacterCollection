@@ -13,19 +13,19 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Name</span>
                     </div>
-                    <input asp-for="Name" class="form-control" />
+                    <input asp-for="Name" class="form-control input" />
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Age</span>
                     </div>
-                    <input asp-for="Age" class="form-control" />
+                    <input asp-for="Age" class="form-control input" />
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Race</span>
                     </div>
-                    <select asp-for="Race" class="form-control" asp-items="ViewBag.Races">
+                    <select asp-for="Race" class="form-control input" asp-items="ViewBag.Races">
                         <option selected disabled>Click to choose</option>
                     </select>
                 </div>
@@ -33,7 +33,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Class</span>
                     </div>
-                    <select name="CharacterClass" asp-for="Class" class="form-control" asp-items="ViewBag.Classes">
+                    <select name="CharacterClass" asp-for="Class" class="form-control input" asp-items="ViewBag.Classes">
                         <option selected disabled>Click to choose</option>
                     </select>
                 </div>
@@ -41,25 +41,25 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Alignment</span>
                     </div>
-                    <select asp-for="Alignment" class="form-control" asp-items="ViewBag.Alignments">
+                    <select asp-for="Alignment" class="form-control input" asp-items="ViewBag.Alignments">
                         <option selected disabled>Click to choose</option>
                     </select>
                 </div>
             </div>
             <div id="statisticsField">
                 <div id="acAndHp">
-                    <div class="formHeader">Character Statistics</div>
+                    <div class="formHeader">Statistics</div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">AC</span>
                         </div>
-                        <input asp-for="ArmorClass" class="form-control" />
+                        <input asp-for="ArmorClass" class="form-control input" />
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Max HP</span>
                         </div>
-                        <input asp-for="MaxHitPoints" class="form-control" />
+                        <input asp-for="MaxHitPoints" class="form-control input" />
                     </div>
                 </div>
                 <div id="abilityScores">
@@ -68,37 +68,37 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Str</span>
                         </div>
-                        <input name="Strength" type="number" min="1" max="20" value="10" class="form-control" />
+                        <input name="Strength" type="number" min="1" max="20" value="10" class="form-control input" />
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Dex</span>
                         </div>
-                        <input name="Dexterity" type="number" min="1" max="20" value="10" class="form-control" />
+                        <input name="Dexterity" type="number" min="1" max="20" value="10" class="form-control input" />
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Con</span>
                         </div>
-                        <input name="Constitution" type="number" min="1" max="20" value="10" class="form-control" />
+                        <input name="Constitution" type="number" min="1" max="20" value="10" class="form-control input" />
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Int</span>
                         </div>
-                        <input name="Intelligence" type="number" min="1" max="20" value="10" class="form-control" />
+                        <input name="Intelligence" type="number" min="1" max="20" value="10" class="form-control input" />
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Wis</span>
                         </div>
-                        <input name="Wisdom" type="number" min="1" max="20" value="10" class="form-control" />
+                        <input name="Wisdom" type="number" min="1" max="20" value="10" class="form-control input" />
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Cha</span>
                         </div>
-                        <input name="Charisma" type="number" min="1" max="20" value="10" class="form-control" />
+                        <input name="Charisma" type="number" min="1" max="20" value="10" class="form-control input" />
                     </div>
                 </div>
             </div>
@@ -108,31 +108,31 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">CP</span>
                     </div>
-                    <input name="Copper" type="number" min="0" value="0" class="form-control" />
+                    <input name="Copper" type="number" min="0" value="0" class="form-control input" />
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">SP</span>
                     </div>
-                    <input name="Silver" type="number" min="0" value="0" class="form-control" />
+                    <input name="Silver" type="number" min="0" value="0" class="form-control input" />
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">GP</span>
                     </div>
-                    <input name="Gold" type="number" min="0" value="0" class="form-control" />
+                    <input name="Gold" type="number" min="0" value="0" class="form-control input" />
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">PP</span>
                     </div>
-                    <input name="Platinum" type="number" min="0" value="0" class="form-control" />
+                    <input name="Platinum" type="number" min="0" value="0" class="form-control input" />
                 </div>
             </div>
         </div>
         <div id="buttonField" class="form-group flex">
-            <a asp-action="Index" class="btn btn-primary">Exit creation of new character</a>
-            <input type="submit" value="Create" class="btn btn-success" />
+            <a asp-action="Index" class="btn btn-outline-primary">Exit creation of new character</a>
+            <input type="submit" value="Create" class="btn btn-outline-success" />
         </div>
     </form>
 </div>

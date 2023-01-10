@@ -24,10 +24,7 @@ namespace DnD_CharacterCollection.Controllers
             // Collecting username when user accesses the controller(Index-page) and saving in global variable
             user = User.Identity.Name;
 
-            var characters = _context.Characters
-                .Include(c => c.Attributes)
-                .Include(c => c.Wealth)
-                .Where(x => x.UserName == user);
+            var characters = _context.Characters.Where(x => x.UserName == user);
 
             return View(await characters.ToListAsync());
         }
@@ -50,10 +47,7 @@ namespace DnD_CharacterCollection.Controllers
                 return NotFound();
             }
 
-            var characters = _context.Characters
-                .Include(c => c.Attributes)
-                .Include(c => c.Wealth)
-                .Where(x => x.UserName == user);
+            var characters = _context.Characters.Where(x => x.UserName == user);
             ViewData["Characters"] = characters.ToList();
 
             return View(character);

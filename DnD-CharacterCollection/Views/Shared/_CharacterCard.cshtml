@@ -2,14 +2,14 @@
 
 
 <div class="characterList">
-    <div class="createLink">
+    <div class="createLink nav-link">
         <a asp-action="Create">Create New</a>
     </div>
     @foreach (Character character in Model)
     {
-        <a class="characterCardLink" asp-action="Details" asp-route-id="@character.Id">
+        <a class="characterCardLink nav-link" asp-action="Details" asp-route-id="@character.Id">
             <div class="characterCard">
-                <div class="characterCardName">
+                <div class="characterName">
                     @character.Name
                 </div>
                 <hr />
