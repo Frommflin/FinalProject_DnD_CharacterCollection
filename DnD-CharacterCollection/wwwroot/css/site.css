@@ -216,3 +216,45 @@ dl{
     justify-content: center;
     font-size: x-large;
 }
+
+
+/*
+ ************************************************************
+ *****              Styling for create page             *****
+ ************************************************************
+*/
+#formFields {
+    justify-content: space-evenly;
+}
+#formFields input {
+    display: block;
+}
+#characteristicsField {
+    width: 380px;
+}
+#statisticsField {
+    width: 200px;
+}
+#wealthField {
+    width: 150px;
+}
+#characteristicsField .input-group-text {
+    width: 100px;
+}
+#acAndHp .input-group-text {
+    width: 80px;
+}
+#abilityScores .input-group-text {
+    width: 55px;
+}
+#wealthField .input-group-text {
+    width: 45px;
+}
+.input-group{
+    margin-bottom: 15px;
+}
+.formHeader {
+}
+#buttonField{
+    justify-content: space-between;
+}
