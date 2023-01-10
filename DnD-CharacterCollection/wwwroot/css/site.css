@@ -27,7 +27,7 @@ body {
     color: white;
     height: 100vh;
 }
-h1, h3, h4{
+h1, h2, h3, h4{
     font-family: var(--cinzel);
 }
 .nav-link {
@@ -59,6 +59,11 @@ main {
 }
 .flex {
     display: flex;
+}
+
+input[type="email"], input[type="password"] {
+    background-color: rgba(0,75,113,.1);
+    color: rgba(255,255,255,.6);
 }
 
 /*

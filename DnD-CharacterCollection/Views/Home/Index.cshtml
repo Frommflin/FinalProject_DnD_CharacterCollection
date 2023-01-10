@@ -1,6 +1,25 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+
 <div class="text-center">
     <h1 class="display-4">Welcome to your <img height="65" src="~/images/Logo.png" /> Character collection!</h1>
     <hr />
-    <p>Log in or register an account to view, create and manage your Dungeons &amp; Dragons characters.</p>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <p>
+            Welcome to you personal collection of characters! Navigate to 'Characters' in the menu to see your current charcters. You can also create new characters, edit them and delete them.
+        </p>
+        <p>
+            This website is currently focused on the very basic infomration about a character, things that needs to be set and decided no matter what class or race you might choose. Skills have not yet been worked into the site, therefore this site is currently only suitable as a backup to your physical character sheets.
+        </p>
+    }
+    else
+    {
+        <p>Log in or register an account to view, create and manage your Dungeons &amp; Dragons characters.</p>
+    }
+
+
+    
 </div>
