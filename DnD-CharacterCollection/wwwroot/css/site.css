@@ -49,10 +49,14 @@ main {
     overflow: auto;
     width: 200px;
 }
-.characterCardLink, 
-.characterCardLink:active, 
-.characterCardLink:visited, 
-.characterCardLink:hover {
+.createLink {
+    text-align: center;
+    padding: 5px;
+}
+.characterList a,
+.characterList a:active,
+.characterList a:visited,
+.characterList a:hover {
     color: black;
     text-decoration: none;
 }
@@ -60,7 +64,15 @@ main {
     border: 1px dashed black;
     margin: 15px 10px;
 }
-
+.characterCardName{
+    text-align: center;
+}
+.characterCard hr {
+    margin: 5px;
+}
+.characterCardInfo {
+    justify-content: space-around;
+}
 /*
  ************************************************************
  *****            Styling for character page            *****

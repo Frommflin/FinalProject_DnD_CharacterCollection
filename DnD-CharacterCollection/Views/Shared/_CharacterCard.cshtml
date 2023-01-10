@@ -2,9 +2,9 @@
 
 
 <div class="characterList">
-    <p>
+    <div class="createLink">
         <a asp-action="Create">Create New</a>
-    </p>
+    </div>
     @foreach (Character character in Model)
     {
         <a class="characterCardLink" asp-action="Details" asp-route-id="@character.Id">
@@ -13,7 +13,7 @@
                     @character.Name
                 </div>
                 <hr />
-                <div class="characterCardInfo">
+                <div class="characterCardInfo flex">
                     <div>
                         @character.Class
                     </div>
