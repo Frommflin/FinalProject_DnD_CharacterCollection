@@ -26,10 +26,31 @@ namespace DnD_CharacterCollection.Models
         public int Age { get; set; }
 
         [Required]
+        [Display(Name = "Height (cm)")]
+        public int Height { get; set; }
+
+        [Required]
+        [Display(Name = "Weight (kg)")]
+        public int Weight { get; set; }
+
+        [Required]
+        [Display(Name = "Eye color")]
+        public string Eyes { get; set; }
+
+        [Required]
+        [Display(Name = "Complexion")]
+        public string Skin { get; set; }
+
+        [Required]
+        [Display(Name = "Hair color")]
+        public string Hair { get; set; }
+
+
+        // Changing data
+
+        [Required]
         [Display(Name = "AC")]
         public int ArmorClass { get; set; }
-
-        // Regularly changing data
 
         [Required]
         [Range(1, 20, ErrorMessage = "Level has to between 1 and 20.")]

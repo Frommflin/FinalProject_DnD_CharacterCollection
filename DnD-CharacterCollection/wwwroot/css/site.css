@@ -293,11 +293,8 @@ dl{
  *****              Styling for create page             *****
  ************************************************************
 */
-#formFields {
-    justify-content: space-evenly;
-}
-#formFields input {
-    display: block;
+#formFields, #buttonField {
+    justify-content: space-between;
 }
 #characteristicsField {
     width: 380px;
@@ -315,6 +312,7 @@ dl{
 }
 #characteristicsField .input-group-text {
     width: 100px;
+    padding-left: 8px;
 }
 #acAndHp .input-group-text {
     width: 80px;
@@ -341,7 +339,4 @@ dl{
 }
 #abilityScores .formHeader {
     font-size: medium;
-}
-#buttonField{
-    justify-content: space-between;
 }

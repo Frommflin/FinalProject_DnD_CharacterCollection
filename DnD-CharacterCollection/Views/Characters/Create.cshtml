@@ -1,6 +1,4 @@
 ﻿@model Character
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
 
 <div>
     <h1>Create Character</h1>
@@ -20,6 +18,36 @@
                         <span class="input-group-text">Age</span>
                     </div>
                     <input asp-for="Age" class="form-control input" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Height (cm)</span>
+                    </div>
+                    <input asp-for="Height" class="form-control input" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Weight (kg)</span>
+                    </div>
+                    <input asp-for="Weight" class="form-control input" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Complexion</span>
+                    </div>
+                    <input asp-for="Skin" class="form-control input" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Eye color</span>
+                    </div>
+                    <input asp-for="Eyes" class="form-control input" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Hair color</span>
+                    </div>
+                    <input asp-for="Hair" class="form-control input" />
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">

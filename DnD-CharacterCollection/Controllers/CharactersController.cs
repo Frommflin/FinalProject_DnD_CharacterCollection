@@ -237,6 +237,8 @@ namespace DnD_CharacterCollection.Controllers
         // GET: Characters/Create
         public IActionResult Create()
         {
+            user = User.Identity.Name;
+
             ViewData["Alignments"] = new SelectList(_context.Set<Alignment>(), "Name", "Name");
             ViewData["Races"] = new SelectList(_context.Set<Race>(), "Name", "Name");
             ViewData["Classes"] = new SelectList(_context.Set<Class>(), "Name", "Name");
@@ -247,9 +249,9 @@ namespace DnD_CharacterCollection.Controllers
         // POST: Characters/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string name, string race, string characterClass, string alignment, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int armorClass, int maxHitPoints)
+        public async Task<IActionResult> Create(string name, int age, int height, int weight, string skin, string eyes, string hair, string race, string characterClass, string alignment, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold, int platinum, int armorClass, int maxHitPoints)
         {
-            Character character = Utilities.CreateCharacter(name, race, characterClass, alignment, age, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold, platinum, armorClass, maxHitPoints, user);
+            Character character = Utilities.CreateCharacter(name, age, height, weight, skin, eyes, hair, race, characterClass, alignment, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold, platinum, armorClass, maxHitPoints, user);
 
 
             if (ModelState.IsValid)
@@ -258,8 +260,7 @@ namespace DnD_CharacterCollection.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AttributesId"] = new SelectList(_context.Set<Attributes>(), "Id", "Id", character.AttributesId);
-            ViewData["CoinPouchId"] = new SelectList(_context.Set<CoinPouch>(), "Id", "Id", character.CoinPouchId);
+            
             return View(character);
         }
 
