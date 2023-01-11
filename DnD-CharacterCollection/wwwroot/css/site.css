@@ -10,6 +10,10 @@
     --secondary-dark: #22323f;
     --cinzel: 'Cinzel', serif;
     --playfairdisplaySC: 'Playfair Display SC', serif;
+    --copper: #ce7c56;
+    --silver: #d5dde0;
+    --gold: #dcba2c;
+    --platinum: #f0f3f5;
 }
 
 html {
@@ -150,7 +154,9 @@ input[type="email"], input[type="password"] {
 
 /* Name-Box styling */
 #nameBox {
-    width: 420px;
+    width: 450px;
+    color: var(--primary);
+    text-shadow: 3px 3px 2px black;
 }
 
 .absolute{
@@ -160,8 +166,8 @@ input[type="email"], input[type="password"] {
 /* Level-Box styling */
 #lvlBox {
     height: min-content;
-    top: 46px;
-    right: 60px;
+    top: 56px;
+    right: 40px;
 }
 #levelInfo{
     width: 400px;
@@ -221,8 +227,8 @@ input[type="email"], input[type="password"] {
 /* HP-Box styling */
 #hpBox {
     text-align: center;
-    top: 87px;
-    left: 197px;
+    top: 97px;
+    left: 200px;
     width: 152px;
 }
 .hp {
@@ -251,6 +257,18 @@ input[type="email"], input[type="password"] {
     font-size: medium;
     font-weight: 500;
 }
+#copper {
+    color: var(--copper);
+}
+#silver {
+    color: var(--silver);
+}
+#gold {
+    color: var(--gold);
+}
+#platinum {
+    color: var(--platinum);
+}
 .coinValue {
     width: 55px;
 }
@@ -273,9 +291,11 @@ dl{
     margin: 0;
     padding-left: 10px;
 }
-#characteristicsBox .titleData{
+#characteristicsBox .titleData {
     text-align: left;
     font-size: medium;
+    color: var(--primary);
+    text-shadow: 3px 3px 2px black;
 }
 
 /* AC-Box styling */
@@ -283,7 +303,7 @@ dl{
     height: 60px;
     width: 80px;
     text-align: center;
-    top: 87px;
+    top: 97px;
     left: 395px;
 }
 #armorclassData {

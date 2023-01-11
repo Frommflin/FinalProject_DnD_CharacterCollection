@@ -5,7 +5,7 @@
     <div id="characterPage" class="page">
         <div>
             <div id="nameBox" class="box characterName">
-                <div class="h2">@Html.DisplayFor(model => model.Name)</div>
+                <div class="h1">@Html.DisplayFor(model => model.Name)</div>
                 <hr />
             </div>
             <div id="lvlBox" class="box flex absolute">
@@ -128,7 +128,7 @@
                 <hr />
                 <div id="wealthData" class="flex">
                     <div id="currentWealth">
-                        <div class="wealthItem flex">
+                        <div id="copper" class="wealthItem flex">
                             <div class="coinTitle titleData">
                                 @Html.DisplayNameFor(model => model.Wealth.Copper)
                             </div>
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                         <hr />
-                        <div class="wealthItem flex">
+                        <div id="silver" class="wealthItem flex">
                             <div class="coinTitle titleData">
                                 @Html.DisplayNameFor(model => model.Wealth.Silver)
                             </div>
@@ -146,7 +146,7 @@
                             </div>
                         </div>
                         <hr />
-                        <div class="wealthItem flex">
+                        <div id="gold" class="wealthItem flex">
                             <div class="coinTitle titleData">
                                 @Html.DisplayNameFor(model => model.Wealth.Gold)
                             </div>
@@ -155,7 +155,7 @@
                             </div>
                         </div>
                         <hr />
-                        <div class="wealthItem flex">
+                        <div id="platinum" class="wealthItem flex">
                             <div class="coinTitle titleData">
                                 @Html.DisplayNameFor(model => model.Wealth.Platinum)
                             </div>
