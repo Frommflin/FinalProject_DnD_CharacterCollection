@@ -64,10 +64,24 @@ main {
 .flex {
     display: flex;
 }
-
 input[type="email"], input[type="password"] {
     background-color: rgba(0,75,113,.1);
     color: rgba(255,255,255,.6);
+}
+
+/*
+ ************************************************************
+ *****         Styling for Edit page (level up)         *****
+ ************************************************************
+*/
+#levelUpForm{
+    gap: 100px;
+}
+#levelUpForm label{
+    font-family: var(--cinzel);
+}
+#editBtns {
+    margin-top: 40px;
 }
 
 /*
@@ -321,6 +335,7 @@ dl{
 */
 #formFields, #buttonField {
     justify-content: space-between;
+    margin-bottom: 60px;
 }
 #characteristicsField {
     width: 380px;
