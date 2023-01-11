@@ -40,7 +40,8 @@
                         @Html.DisplayNameFor(model => model.Attributes.Strength)
                     </div>
                     <div class="attributeValue">
-                        @Html.DisplayFor(model => model.Attributes.Strength) @* Add printout for modifiers? *@
+                        @Html.DisplayFor(model => model.Attributes.Strength)
+                        <span class="modifierValue"> (@Html.DisplayFor(model => model.Attributes.StrModifier))</span>
                     </div>
                 </div>
                 <div class="attributeData">
@@ -49,6 +50,7 @@
                     </div>
                     <div class="attributeValue">
                         @Html.DisplayFor(model => model.Attributes.Dexterity)
+                        <span class="modifierValue"> (@Html.DisplayFor(model => model.Attributes.DexModifier))</span>
                     </div>
                 </div>
                 <div class="attributeData">
@@ -57,6 +59,7 @@
                     </div>
                     <div class="attributeValue">
                         @Html.DisplayFor(model => model.Attributes.Constitution)
+                        <span class="modifierValue"> (@Html.DisplayFor(model=> model.Attributes.ConModifier))</span>
                     </div>
                 </div>
                 <div class="attributeData">
@@ -65,6 +68,7 @@
                     </div>
                     <div class="attributeValue">
                         @Html.DisplayFor(model => model.Attributes.Intelligence)
+                        <span class="modifierValue"> (@Html.DisplayFor(model=> model.Attributes.IntModifier))</span>
                     </div>
                 </div>
                 <div class="attributeData">
@@ -73,6 +77,7 @@
                     </div>
                     <div class="attributeValue">
                         @Html.DisplayFor(model => model.Attributes.Wisdom)
+                        <span class="modifierValue"> (@Html.DisplayFor(model => model.Attributes.WisModifier))</span>
                     </div>
                 </div>
                 <div class="attributeData">
@@ -81,6 +86,7 @@
                     </div>
                     <div class="attributeValue">
                         @Html.DisplayFor(model => model.Attributes.Charisma)
+                        <span class="modifierValue"> (@Html.DisplayFor(model => model.Attributes.ChaModifier))</span>
                     </div>
                 </div>
             </div>

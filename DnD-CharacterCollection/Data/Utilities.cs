@@ -15,6 +15,12 @@ namespace DnD_CharacterCollection.Data
             stats.Intelligence = intelligence;
             stats.Wisdom = wisdom;
             stats.Charisma = charisma;
+            stats.StrModifier = stats.GetModifier(strength);
+            stats.DexModifier = stats.GetModifier(dexterity);
+            stats.ConModifier = stats.GetModifier(constitution);
+            stats.IntModifier = stats.GetModifier(intelligence);
+            stats.WisModifier = stats.GetModifier(wisdom);
+            stats.ChaModifier = stats.GetModifier(charisma);
 
             CoinPouch pouch = new CoinPouch();
             pouch.Copper = copper;

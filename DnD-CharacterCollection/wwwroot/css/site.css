@@ -202,12 +202,21 @@ input[type="email"], input[type="password"] {
     border: 3px groove var(--primary-dark);
     border-radius: 100%;
     margin: 10px;
+    height: 65px;
+    width: 90px;
+    padding-top: 2px;
 }
 .attributeName {
     font-size: medium;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--primary);
+    text-shadow: 3px 3px 2px black;
 }
 .attributeValue {
+}
+.modifierValue{
+    color: var(--primary-light);
+    opacity: .7;
 }
 
 /* HP-Box styling */
@@ -260,7 +269,7 @@ input[type="email"], input[type="password"] {
 /* Characteristics-Box styling */
 #characteristicsBox {
     width: 400px;
-    top: 190px;
+    top: 175px;
     right: 120px;
 }
 dl{
