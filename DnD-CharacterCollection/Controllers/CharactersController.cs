@@ -138,7 +138,14 @@ namespace DnD_CharacterCollection.Controllers
                 return NotFound();
             }
 
-            character.CurrentHitPoints = Utilities.UpdateHitPoints(character, hitPoints);
+            if(character.CurrentHitPoints + hitPoints > character.MaxHitPoints)
+            {
+                character.CurrentHitPoints = character.MaxHitPoints;
+            }
+            else
+            {
+                character.CurrentHitPoints = Utilities.UpdateHitPoints(character, hitPoints);
+            }
 
             if (ModelState.IsValid)
             {
