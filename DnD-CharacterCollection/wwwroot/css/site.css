@@ -125,6 +125,7 @@ input[type="email"], input[type="password"] {
     border: 0px;
     margin: 2px;
     color: rgba(255,255,255,.4);
+    width: 100%;
 }
 #characterPage input[type="submit"] {
     height: 26px;
@@ -188,9 +189,7 @@ input[type="email"], input[type="password"] {
 #editExp {
     align-items: flex-end;
     margin-left: 5px;
-}
-#editExp input[name="addExp"] {
-    width: 100px;
+    width: 120px;
 }
 
 /* Attribute-Box styling */
@@ -224,6 +223,7 @@ input[type="email"], input[type="password"] {
     text-align: center;
     top: 87px;
     left: 197px;
+    width: 152px;
 }
 .hp {
     font-size: xx-small;
@@ -231,9 +231,6 @@ input[type="email"], input[type="password"] {
     text-align: left;
     line-height: 24px;
     padding-left: 5px;
-}
-#hpBox input[name="HitPoints"] {
-    width: 151px;
 }
 
 /* Wealth-Box styling */
@@ -262,8 +259,8 @@ input[type="email"], input[type="password"] {
     margin: 0px 5px;
     opacity: .2;
 }
-#editWealth input[type="number"]{
-    width: 146px;
+#editWealth{
+    width: 147px;
 }
 
 /* Characteristics-Box styling */
@@ -284,7 +281,7 @@ dl{
 /* AC-Box styling */
 #armorclassBox {
     height: 60px;
-    width: 60px;
+    width: 80px;
     text-align: center;
     top: 87px;
     left: 395px;

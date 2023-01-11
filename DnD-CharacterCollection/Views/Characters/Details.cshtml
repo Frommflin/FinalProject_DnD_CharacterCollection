@@ -254,6 +254,11 @@
                 <div id="armorclassData" class="flex">
                     @Html.DisplayFor(model => model.ArmorClass)
                 </div>
+                <form asp-action="EditAC">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="number" name="NewArmorClass" placeholder="New AC"/>
+                    <input type="submit" value="  Update  " class="btn btn-outline-primary" />
+                </form>
             </div>
         </div>
         <div id="deleteBtn" class="absolute">

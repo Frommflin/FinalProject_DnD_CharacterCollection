@@ -55,6 +55,41 @@ namespace DnD_CharacterCollection.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditAC(int id, int newArmorClass)
+        {
+            Character character = _context.Characters.Find(id);
+
+            if (id != character.Id)
+            {
+                return NotFound();
+            }
+
+            character.ArmorClass = newArmorClass;
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(character);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CharacterExists(character.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return RedirectToAction(nameof(Details), new { id = id });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditExp(int id, int addExp)
         {
             Character character = _context.Characters.Find(id);
